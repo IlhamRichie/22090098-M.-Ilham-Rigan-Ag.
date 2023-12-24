@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2022 at 01:51 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Waktu pembuatan: 23 Des 2023 pada 09.27
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ctransactions`
+-- Struktur dari tabel `ctransactions`
 --
 
 CREATE TABLE `ctransactions` (
@@ -34,10 +34,10 @@ CREATE TABLE `ctransactions` (
   `totalAmount` varchar(32) NOT NULL,
   `UserID` int(11) NOT NULL,
   `Date` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ctransactions`
+-- Dumping data untuk tabel `ctransactions`
 --
 
 INSERT INTO `ctransactions` (`CTransactionID`, `productName`, `Quantity`, `totalAmount`, `UserID`, `Date`) VALUES
@@ -80,12 +80,22 @@ INSERT INTO `ctransactions` (`CTransactionID`, `productName`, `Quantity`, `total
 (38, 'Surf', 1, '28', 3, 'Tue, May 31 2022'),
 (39, 'Head and Shoulder', 1, '28', 3, 'Tue, May 31 2022'),
 (40, 'Coke', 2, '70', 3, 'Tue, May 31 2022'),
-(41, 'Bearbrand', 5, '1000', 13, 'Wed, Jun 01 2022');
+(41, 'Bearbrand', 5, '1000', 13, 'Wed, Jun 01 2022'),
+(42, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(43, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(44, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(45, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(46, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(47, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(48, 'Sugar', 5, '325', 3, 'Jum, Des 22 2023'),
+(49, 'Sunsilk', 3, '18', 3, 'Sab, Des 23 2023'),
+(50, 'UMKM Beras A', 2, '27980', 3, 'Sab, Des 23 2023'),
+(51, 'UMKM Tas Selempang', 2, '39980', 3, 'Sab, Des 23 2023');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventory`
+-- Struktur dari tabel `inventory`
 --
 
 CREATE TABLE `inventory` (
@@ -98,45 +108,58 @@ CREATE TABLE `inventory` (
   `UnitOfMeasure` varchar(50) NOT NULL,
   `stockThreshold` varchar(32) NOT NULL,
   `thresholdStatus` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `inventory`
+-- Dumping data untuk tabel `inventory`
 --
 
 INSERT INTO `inventory` (`InventoryID`, `ProductName`, `Description`, `BuyingPrice`, `SellingPrice`, `Quantity`, `UnitOfMeasure`, `stockThreshold`, `thresholdStatus`) VALUES
-(1, 'Niscafe Stick', 'Bangon, Sulong, Tara kape', 85, 100, 95, 'Pack', '10', 'Active'),
-(2, 'Kopeko 3-in-1', 'Three in one coffee', 6, 8, 48, 'Piece', '10', 'Active'),
-(3, 'Ariel', 'Powder detergent', 12, 15, 35, 'Peice', '10', 'Active'),
-(4, 'Salt', 'salty', 15, 16, 20, 'Kilos', '10', 'Active'),
-(5, 'Silka', 'Pampaputi', 45, 50, 18, 'Piece', '10', 'Active'),
-(6, 'Jo-an', 'with baki2 inside', 1, 2, 23, 'Pack', '10', 'Active'),
-(8, 'Sugar', 'sweeter', 60, 65, 20, 'Kilos', '10', 'Active'),
-(9, 'Patis', 'Sukang Puti', 10, 12, 21, 'Small Pouch', '10', 'Active'),
-(10, 'Suka(Tuba)', 'Pure suka tuba', 50, 60, 23, 'Gallon', '10', 'Active'),
-(11, 'Safeguard', 'Safe from germs with safeguard', 23, 25, 9, 'Piece', '10', 'Active'),
-(12, 'Head and Shoulder', 'For smoother hair', 6, 7, 17, 'Piece', '10', 'Active'),
-(13, 'Sunsilk', 'For longer hair', 5, 6, 21, 'Piece', '10', 'Active'),
-(14, 'Cream Silk', 'For strong and long hair', 6, 8, 19, 'Piece', '10', 'Active'),
-(15, 'Perla', 'Bar Detergent', 21, 24, 21, 'Bar', '10', 'Active'),
-(16, 'Surf', 'Bar detergent', 24, 28, 19, 'Bar', '10', 'Active'),
-(17, 'Tide', 'Gulat ka no!', 25, 27, 18, 'Bar', '10', 'Active'),
-(18, 'Magic Sarap', 'Mas mulami!', 5, 6, 17, 'Piece', '10', 'Active'),
-(19, 'Vitsin', 'For cooking', 5, 6, 0, 'Smallest Pack', '10', 'Low Inventory'),
-(20, 'Oyster Sauce', 'Mamasitas', 10, 12, 21, 'Small Pack', '10', 'Active'),
-(22, 'dfcdfc', 'efcefcdfcd', 43, 44, 21, 'efcef', '10', 'Active'),
-(23, 'ambut', 'fbbb', 45, 46, 13, 'gfbfb', '10', 'Active'),
-(29, 'KreamStik', 'Yummy', 35, 45, 23, 'Piece', '10', 'Active'),
-(41, 'Dove', 'For smoother skin charootttt', 45, 50, 40, 'Piece', '10', 'Active'),
-(43, 'Coke', 'Masarap', 30, 35, 48, 'Liter', '10', 'Active'),
-(44, 'Royal', 'tru orange', 30, 35, 50, 'Liter', '10', 'Active'),
-(45, 'Sprite', 'tru citrus', 30, 35, 48, 'Liter', '10', 'Active'),
-(46, 'Bearbrand', 'blablabla', 150, 200, 10, 'Kilo', '10', 'Active');
+(1, 'UMKM Beras A', 'Beras premium untuk masakan sehari-hari', 9000, 13990, 118, 'Kg', '50', 'Active'),
+(2, 'UMKM Sikat Gigi Soft', 'Sikat gigi dengan bulu lembut', 3000, 5990, 150, 'Piece', '40', 'Active'),
+(3, 'UMKM Kopi Bubuk', 'Kopi bubuk pilihan dengan aroma khas', 15000, 24990, 80, 'Pack', '30', 'Active'),
+(4, 'UMKM Pisau Dapur', 'Pisau dapur sederhana namun tajam', 12000, 19990, 100, 'Piece', '35', 'Active'),
+(5, 'UMKM Topi Sport', 'Topi sporty untuk gaya aktif', 18000, 29990, 70, 'Piece', '25', 'Active'),
+(6, 'UMKM Gantungan Kunci Lucu', 'Gantungan kunci dengan desain lucu', 5000, 8990, 200, 'Piece', '60', 'Active'),
+(7, 'UMKM Sarung Tangan Wol', 'Sarung tangan hangat dari wol', 25000, 39990, 40, 'Pair', '15', 'Active'),
+(8, 'UMKM Lemari Plastik', 'Lemari plastik praktis untuk penyimpanan', 35000, 57990, 30, 'Unit', '10', 'Active'),
+(9, 'UMKM Tas Selempang', 'Tas selempang simpel untuk kegiatan sehari-hari', 12000, 19990, 88, 'Piece', '30', 'Active'),
+(10, 'UMKM Snack Renyah', 'Snack renyah untuk camilan ringan', 7500, 12990, 120, 'Pack', '50', 'Active'),
+(11, 'UMKM Teh Hijau', 'Teh hijau segar untuk kesehatan', 10000, 16990, 60, 'Pack', '25', 'Active'),
+(12, 'UMKM Buku Catatan Mini', 'Buku catatan kecil untuk catatan cepat', 4000, 7990, 100, 'Piece', '30', 'Active'),
+(13, 'UMKM Kain Lap Multiguna', 'Kain lap serbaguna untuk kebersihan', 6000, 9990, 150, 'Piece', '40', 'Active'),
+(14, 'UMKM Sikat Rambut', 'Sikat rambut anti kusut', 8000, 14990, 80, 'Piece', '35', 'Active'),
+(15, 'UMKM Speaker Mini', 'Speaker mini portable untuk musik', 25000, 42990, 40, 'Unit', '15', 'Active'),
+(16, 'UMKM Gelang Warna', 'Gelang dengan warna cerah', 3500, 6990, 200, 'Piece', '60', 'Active'),
+(17, 'UMKM Sapu Tangan Kecil', 'Sapu tangan kecil untuk kebersihan', 2000, 3990, 200, 'Piece', '70', 'Active'),
+(18, 'UMKM Lampu Tidur LED', 'Lampu tidur hemat energi dengan LED', 12000, 20990, 50, 'Unit', '20', 'Active'),
+(19, 'UMKM Gelas Plastik', 'Gelas plastik untuk minuman dingin', 5000, 8990, 120, 'Piece', '40', 'Active'),
+(20, 'UMKM Penyiram Tanaman', 'Penyiram tanaman praktis', 7000, 11990, 80, 'Piece', '25', 'Active'),
+(21, 'UMKM Shampoo Herbal', 'Shampoo alami untuk rambut sehat', 12000, 19990, 100, 'Bottle', '35', 'Active'),
+(22, 'UMKM Balsem Hangat', 'Balsem untuk meredakan pegal-pegal', 8000, 12990, 80, 'Jar', '30', 'Active'),
+(23, 'UMKM Sabun Mandi Aromaterapi', 'Sabun mandi dengan aroma menenangkan', 6000, 9990, 120, 'Bar', '50', 'Active'),
+(24, 'UMKM Hand Sanitizer', 'Hand sanitizer untuk kebersihan tangan', 5000, 8990, 150, 'Bottle', '40', 'Active'),
+(25, 'UMKM Pillowcase Lucu', 'Bantal dengan desain lucu untuk tidur nyenyak', 18000, 29990, 70, 'Piece', '25', 'Active'),
+(26, 'UMKM Gantungan Kunci Musikal', 'Gantungan kunci berbentuk alat musik', 3000, 5990, 200, 'Piece', '60', 'Active'),
+(27, 'UMKM Topi Rajut', 'Topi rajut hangat untuk musim dingin', 25000, 39990, 40, 'Piece', '15', 'Active'),
+(28, 'UMKM Pembersih Wajah Organik', 'Pembersih wajah alami tanpa bahan kimia', 35000, 57990, 30, 'Bottle', '10', 'Active'),
+(29, 'UMKM Tote Bag Ramah Lingkungan', 'Tote bag yang ramah lingkungan', 12000, 19990, 90, 'Piece', '30', 'Active'),
+(30, 'UMKM Cemilan Sehat', 'Cemilan sehat untuk camilan ringan', 7500, 12990, 120, 'Pack', '50', 'Active'),
+(31, 'UMKM Body Lotion Aloe Vera', 'Body lotion dengan ekstrak aloe vera', 10000, 16990, 60, 'Bottle', '25', 'Active'),
+(32, 'UMKM Buku Cerita Anak', 'Buku cerita anak dengan ilustrasi menarik', 4000, 7990, 100, 'Piece', '30', 'Active'),
+(33, 'UMKM Kain Sarung Tenun', 'Kain sarung tradisional dengan tenunan indah', 6000, 9990, 150, 'Meter', '40', 'Active'),
+(34, 'UMKM Lip Balm Organik', 'Lip balm organik untuk bibir lembut', 8000, 14990, 80, 'Stick', '35', 'Active'),
+(35, 'UMKM Portable Charger', 'Portable charger untuk perangkat seluler', 25000, 42990, 40, 'Unit', '15', 'Active'),
+(36, 'UMKM Gelang Batik', 'Gelang dengan motif batik tradisional', 3500, 6990, 200, 'Piece', '60', 'Active'),
+(37, 'UMKM Kaus Tangan Rajut', 'Kaus tangan rajut untuk hangat', 2000, 3990, 200, 'Pair', '70', 'Active'),
+(38, 'UMKM Lampu Hias Kreatif', 'Lampu hias dengan desain kreatif', 12000, 20990, 50, 'Piece', '20', 'Active'),
+(39, 'UMKM Gelas Keramik Handmade', 'Gelas keramik handmade dengan motif unik', 5000, 8990, 120, 'Piece', '40', 'Active'),
+(40, 'UMKM Pupuk Organik', 'Pupuk organik untuk tanaman sehat', 7000, 11990, 80, 'Kg', '25', 'Active');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stransactions`
+-- Struktur dari tabel `stransactions`
 --
 
 CREATE TABLE `stransactions` (
@@ -147,10 +170,10 @@ CREATE TABLE `stransactions` (
   `TypeOfTransaction` varchar(50) NOT NULL COMMENT 'Add, Edit, Disable, Enable',
   `UserID` int(11) NOT NULL,
   `TransactionDate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `stransactions`
+-- Dumping data untuk tabel `stransactions`
 --
 
 INSERT INTO `stransactions` (`STransactionID`, `InventoryID`, `productName`, `Quantity`, `TypeOfTransaction`, `UserID`, `TransactionDate`) VALUES
@@ -212,7 +235,7 @@ INSERT INTO `stransactions` (`STransactionID`, `InventoryID`, `productName`, `Qu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -223,76 +246,76 @@ CREATE TABLE `users` (
   `Password` varchar(50) NOT NULL,
   `Role` varchar(50) NOT NULL COMMENT 'Admin, Staff, Cashier',
   `Status` varchar(32) NOT NULL COMMENT 'Active, InActive'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`UserID`, `FirstName`, `LastName`, `Email`, `Password`, `Role`, `Status`) VALUES
-(1, 'Juls', 'Estorco', '21103811@usc.edu.ph', 'estorco', 'Admin', 'Active'),
-(2, 'Grace', 'Vellina', 'grace@gmail.com', 'vellina', 'Staff', 'Active'),
-(3, 'Juspher', 'Balangs', 'jus@gmail.com', 'balangyao', 'Cashier', 'Active'),
-(6, 'Clint', 'Savilla', 'clint@gmail.com', 'clintoy123', 'Staff', 'Active'),
-(7, 'Soseit', 'Bedors', 'soseit@gmail.com', 'bedors', 'Staff', 'Active'),
-(10, 'Jan', 'Baoc', 'jan@gmail.com', 'baoc123', 'Cashier', 'Active'),
-(11, 'Fe', 'Cabando', 'fe@gmail.com', 'pnguard', 'Admin', 'InActive'),
-(13, 'Christy', 'Toquero', 'toko@gmail.com', 'toqs', 'Cashier', 'Active'),
-(20, 'Christian', 'Maderazo', 'cris@gmail.com', 'gwapo', 'Admin', 'Active'),
-(24, 'Jecil', 'Entoma', 'jecil@gmail.com', 'cel123', 'Staff', 'Active');
+(1, 'Ilham', 'Rigan', 'ilhmrgn22@gmail.com', 'rigan22', 'Admin', 'Active'),
+(2, 'Rojer', 'Vellina', 'grace@gmail.com', 'memenyo', 'Staff', 'Active'),
+(3, 'Jamprut', 'Muiz', 'jus@gmail.com', 'ratu123', 'Cashier', 'Ganti Status'),
+(6, 'Clint', 'santano', 'clint@gmail.com', 'clintoy123', 'Staff', 'Active'),
+(7, 'Soseit', 'beron', 'sosisbakar@gmail.com', 'bedors', 'Staff', 'Active'),
+(10, 'Jan', 'Krik', 'jangkrik@gmail.com', 'baoc123', 'Cashier', 'Active'),
+(11, 'Fe', 'Nirose', 'feni@gmail.com', 'pnguard', 'Admin', 'Change Status'),
+(13, 'Yanto', 'Kopling', 'yangko@gmail.com', 'toqs', 'Cashier', 'Active'),
+(20, 'Christian', 'Sugiono', 'cris@gmail.com', 'gwaponyo', 'Admin', 'Ganti Status'),
+(24, 'Joko', 'Susanto', 'josus@gmail.com', 'cel123', 'Staff', 'Active');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `ctransactions`
+-- Indeks untuk tabel `ctransactions`
 --
 ALTER TABLE `ctransactions`
   ADD PRIMARY KEY (`CTransactionID`);
 
 --
--- Indexes for table `inventory`
+-- Indeks untuk tabel `inventory`
 --
 ALTER TABLE `inventory`
   ADD PRIMARY KEY (`InventoryID`);
 
 --
--- Indexes for table `stransactions`
+-- Indeks untuk tabel `stransactions`
 --
 ALTER TABLE `stransactions`
   ADD PRIMARY KEY (`STransactionID`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UserID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `ctransactions`
+-- AUTO_INCREMENT untuk tabel `ctransactions`
 --
 ALTER TABLE `ctransactions`
-  MODIFY `CTransactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `CTransactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `inventory`
+-- AUTO_INCREMENT untuk tabel `inventory`
 --
 ALTER TABLE `inventory`
   MODIFY `InventoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `stransactions`
+-- AUTO_INCREMENT untuk tabel `stransactions`
 --
 ALTER TABLE `stransactions`
   MODIFY `STransactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
